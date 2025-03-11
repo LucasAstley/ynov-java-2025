@@ -3,7 +3,7 @@
 ## Introduction
 
 This repository contains the exercises for the Java training. The aim is to discover the Java programming language and its features.
-For each exercise, don't forget to create a main method to test/run your code.  
+For each exercise, don't forget to create a main method to test/run your code.
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ For each exercise, don't forget to create a main method to test/run your code.
 3. Open the folder with your favorite IDE (IntelliJ IDEA, Eclipse, etc.) as a Java project
 3. Add the code of the exercises in the corresponding package `fr.ynov.java.XXXX`
 4. For each exercice you will need to add a `public static void main(String[] args)` method in the created class  
-Note that is not the best practice, but it's easier for the training.
+   Note that is not the best practice, but it's easier for the training.
 
 ## Exercises - Easy
 
@@ -25,8 +25,8 @@ Add a class "HelloWorld" in the package.
 
 ### 2. Loops
 
-Create a Java program that prints the numbers from 1 to 10 using a `for` loop. 
-Add a class "For" in the package. 
+Create a Java program that prints the numbers from 1 to 10 using a `for` loop.
+Add a class "For" in the package.
 
 Do the same using a `while` loop.  
 Add a class "While" in the package.
@@ -36,7 +36,7 @@ Add a class "DoWhile" in the package.
 
 ### 3. Arrays
 
-Create a Java program that creates an array of integers and prints the elements of the array.  
+Create a Java program that creates an array of integers and prints the elements of the array.
 - You can create an empty array with fixed length and put integers inside each index
 - or you can create and instance an array with values directly
 
@@ -87,7 +87,7 @@ Create a class `Person` with the following attributes:
 
 Find the documentation about Enum and create a Nationality enum with data for at least 3 countries.
 Create a constructor that takes all the attributes as parameters.  
-Create a method that prints all the attributes of the person.  
+Create a method that prints all the attributes of the person.
 
 Add a class "Person" in the package.
 
@@ -114,35 +114,100 @@ Add a class "Quality" in the package.
 
 Create a Java program that reads a file and prints its content. The file must be created by yourself and contain some text.
 
-Add a class "ReadFile" in the package.  
+Add a class "ReadFile" in the package.
 
 Update the methods to create a folder that contains multiples files and read all the files in the folder.
 
 #### 5. Writing files
 
-Create a Java program that reads a file and write its content in another file. The reading file must be created by yourself and contain some text. 
-The output file must be created by the program, don't forget to close the file after writing.  
+Create a Java program that reads a file and write its content in another file. The reading file must be created by yourself and contain some text.
+The output file must be created by the program, don't forget to close the file after writing.
 
 #### 6. Palindrome
 
 Create a Java program that reads a word from the user and prints if this word is a palindrome or not.  
-A palindrome is a word that reads the same backward as forward.  
+A palindrome is a word that reads the same backward as forward.
 
 Add a class "Palindrome" in the package.
 
 #### 7. Rock Paper Scissors game
 
 Create a Java program that plays the Rock Paper Scissors game.  
-The program should ask the user to choose between Rock, Paper, and Scissors. 
-Then the program should randomly choose one of the three options and print the result.  
+The program should ask the user to choose between Rock, Paper, and Scissors.
+Then the program should randomly choose one of the three options and print the result.
 
-Put all the classes (records, enums, classes, etc.) in the package `fr.ynov.java.game`.  
+Put all the classes (records, enums, classes, etc.) in the package `fr.ynov.java.game`.
 
-Try to separate the logic of the game from the main class. Use class attributes to store the game state. 
+Try to separate the logic of the game from the main class. Use class attributes to store the game state.
 
-It can also be interested to have a Player class that contains the name and the score of the player. 
-It can be useful to ask the user to enter his name at the beginning of the game.  
+It can also be interested to have a Player class that contains the name and the score of the player.
+It can be useful to ask the user to enter his name at the beginning of the game.
 
 Write a beautiful code with comments, good structure, good naming methods, good visibility, etc.
 
-Bonus : you can save the best score in a file and read it at the beginning of the game. Like a leaderboard.  
+Bonus : you can save the best score in a file and read it at the beginning of the game. Like a leaderboard.
+
+## Mini-Project - A car rental system
+
+For this project, create your classes into the `fr.ynov.java.car` package.  
+You should respect the Java naming conventions and the best practices (avoid public fields, use getters and setters when needed, etc.).
+
+Commit and push your code as soon as possible to keep track of your work (and avoid losing it).  
+Use abstract classes, interfaces, enums, etc. when needed or when you think it's a good idea.
+
+### 1. VehicleType Enum
+
+Create an enum `VehicleType` that contains the following values:
+- `SEDAN`
+- `SUV`
+- `SPORT`
+- `TRUCK`
+- `VAN`
+
+### 2. Vehicle Class
+
+Create a class `Vehicle` with the following attributes:
+- `plate` (String)
+- `brand` (String or Brand enum if you want to create it)
+- `model` (String)
+- `type` (VehicleType)
+- `year` (int)
+
+### 3. Truck, Van, SportCar, Sedan, SUV Classes
+
+Create classes that extends the `Vehicle` class for each type of vehicle. You should call a super constructor with the attributes of the vehicle.
+
+### 4. Rentable Interface
+
+Create an interface `Rentable` with the following methods:
+- `double getDailyPrice()` that returns the daily price of the vehicle
+
+Makes the `Vehicle` class implement the `Rentable` interface. This will force you to implement the `getDailyPrice` method in each concrete `Vehicle` class.
+
+### 5. Renting System
+
+Create a class `RentingSystem` that manages the renting of vehicles.
+
+The class should contain a List of vehicles that can be rented (= fleet).
+
+We should be able to manage the fleet of vehicles (add, remove, update) and rent a vehicle.
+
+We should be able to display the list of available vehicles and the list of rented vehicles.
+
+We should be able to rent a vehicle for a given number of days and calculate the total price of the rent.
+
+In this class, you can create a main method to test your code (init the system, classes, adding vehicles, renting vehicles, etc.).
+
+### 6. Advanced
+
+Add a new Customer class that contains the name, the age, and the driver license of the customer.  
+Each customer can rent a vehicle on given dates, but can only have 1 vehicle at a time.  
+Add a method to the RentingSystem to rent a vehicle with a customer.
+
+For each vehicle, add a list of dates where the vehicle is rented.  
+For each customer or given customer, be able to retrieve the list of rented vehicles and the total price of the rent.
+As each vehicle has it's plate, you can set a status for the vehicle (rented or not) and update it when the vehicle is rented.  
+The system should not allow 2 vehicles to have the same plate.
+
+With Scanner, updates your main method (maybe it's preferable to create a new class for the main method) to display a menu to the user to interact with the system.  
+The user should be able to add a vehicle, rent a vehicle, display the list of vehicles, etc.
